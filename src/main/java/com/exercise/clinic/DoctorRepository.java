@@ -20,6 +20,7 @@ public interface DoctorRepository extends JpaRepository<Doctor, Long> {
                           WHERE w.doctor_id = d.id AND w.day_of_week = :dayOfWeek)
               AND d.working_hours_start <= :localStart
               AND d.working_hours_end >= :localEnd
+              AND :localEnd > :localStart
               AND NOT EXISTS (SELECT 1 FROM appointment a
                               WHERE a.doctor_id = d.id AND a.start_time = :startTime)
             ORDER BY (SELECT count(*) FROM appointment load

@@ -5,3 +5,7 @@ spring:
 
   jpa:
     show-sql: true
+
+logging:
+  level:
+    com.exercise: DEBUG

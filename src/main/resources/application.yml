@@ -7,7 +7,7 @@ spring:
     username: ${DATASOURCE_USERNAME:medical_booking_usr}
     password: ${DATASOURCE_PASSWORD:medical_booking_pwd}
     hikari:
-      pool-size: 10
+      maximum-pool-size: 10
 
   jpa:
     hibernate:
@@ -89,7 +89,3 @@ outbox:
   batch-size: 100
   retention: P30D
   cleanup-interval: PT1H
-
-logging:
-  level:
-    com.exercise: DEBUG

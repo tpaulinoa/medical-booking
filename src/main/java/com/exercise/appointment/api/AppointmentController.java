@@ -12,8 +12,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import java.net.URI;
 import org.springframework.data.web.PagedModel;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -59,8 +59,7 @@ class AppointmentController {
         Appointment booked =
                 appointments.book(request.patientId(), request.specialityId(), request.startTime());
 
-        return ResponseEntity.created(URI.create("/appointments/" + booked.getId()))
-                .body(AppointmentResponse.from(booked));
+        return ResponseEntity.status(HttpStatus.CREATED).body(AppointmentResponse.from(booked));
     }
 
     @GetMapping

@@ -83,6 +83,8 @@ instead of failing.
 The outbox is published to Kafka, and three consumers handle the email, the doctor's calendar and the room
 reservation. The consumers are idempotent. The calendar and room systems are fake implementations that only log.
 
+The event format, for other services that want to consume it, is in [docs/events.md](docs/events.md).
+
 The diagrams are in [docs/diagrams.md](docs/diagrams.md).
 
 ## Assumptions

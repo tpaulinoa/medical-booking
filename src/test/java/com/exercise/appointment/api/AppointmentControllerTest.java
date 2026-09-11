@@ -56,7 +56,6 @@ class AppointmentControllerTest {
 
         mockMvc.perform(post("/appointments").contentType(MediaType.APPLICATION_JSON).content(PAYLOAD))
                 .andExpect(status().isCreated())
-                .andExpect(header().string("Location", "/appointments/42"))
                 .andExpect(jsonPath("$.doctor.name").value("Bruno Carvalho"))
                 .andExpect(jsonPath("$.room.number").value("Sala 4"))
                 .andExpect(jsonPath("$.startTime").value("2027-02-02T10:00:00Z"));

@@ -71,6 +71,8 @@ class DoctorAvailabilityQueryTest extends AbstractRepositoryTest {
         assertThat(candidates(cardiology, "TUESDAY", "07:00", "07:30")).isEmpty();
         assertThat(candidates(cardiology, "TUESDAY", "13:30", "14:00")).containsExactly(morningOnly.getId());
         assertThat(candidates(cardiology, "TUESDAY", "14:00", "14:30")).isEmpty();
+        // 23:30 to midnight: the end of the slot wraps around to 00:00
+        assertThat(candidates(cardiology, "TUESDAY", "23:30", "00:00")).isEmpty();
     }
 
     @Test

@@ -104,7 +104,7 @@ sequenceDiagram
 
 The publisher sends first and marks second, so an event can be sent twice but never lost. Each consumer checks
 `processed_event` before acting and records the event after, which absorbs the duplicates. A failing action is
-retried four times with exponential backoff from one second; after that it is logged and the consumer moves on.
+tried four times, with exponential backoff starting at one second; after that it is logged and the consumer moves on.
 Published outbox rows are deleted after 30 days.
 
 The email goes out over SMTP (Mailpit, locally). The calendar and room-reservation adapters are fakes that log.
