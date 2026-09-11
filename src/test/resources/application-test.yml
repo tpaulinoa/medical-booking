@@ -1,0 +1,14 @@
+spring:
+  flyway:
+    # No demo data: tests create their own.
+    locations: classpath:db/migration
+
+  kafka:
+    listener:
+      # Listeners only start in the tests that extend AbstractKafkaTest.
+      auto-startup: false
+
+logging:
+  level:
+    org.testcontainers: INFO
+    com.github.dockerjava: WARN

@@ -1,0 +1,7 @@
+spring:
+  flyway:
+    # Demo data, only loaded in this profile.
+    locations: classpath:db/migration,classpath:db/seed
+
+  jpa:
+    show-sql: true
